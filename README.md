@@ -4,17 +4,6 @@
 
 1. Clone the repository
 
-HTTPS:
-```
-git clone --recurse-submodules https://github.com/ryanw18/RoboDog.git
-```
-
-SSH:
-```
-git clone --recurse-submodules git@github.com:ryanw18/RoboDog.git
-```
-
-
 2. Install dependencies and initialize rosdep if necessary
 
 ```
@@ -25,9 +14,9 @@ sudo apt update
 sudo apt install -y \
     python3-colcon-common-extensions \
     python3-rosdep \
-    python3-vcstool \
     build-essential \
     ros-jazzy-ros-gz \
+    ros-jazzy-turtlebot3* \
     ros-jazzy-cartographer \
     ros-jazzy-cartographer-ros \
     ros-jazzy-navigation2 \
@@ -64,20 +53,9 @@ source ~/RoboDog/ros2_ws/install/setup.bash
 
 export TURTLEBOT3_MODEL=waffle
 
-export GZ_SIM_RESOURCE_PATH="$HOME/RoboDog/ros2_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models${GZ_SIM_RESOURCE_PATH:+:$GZ_SIM_RESOURCE_PATH}"
+export GZ_SIM_RESOURCE_PATH="/opt/ros/jazzy/share/turtlebot3_gazebo/models${GZ_SIM_RESOURCE_PATH:+:$GZ_SIM_RESOURCE_PATH}"
 ```
 
-6. Verify installation
-
-Check that TurtleBot3 packages are available:
-```
-ros2 pkg list | grep turtlebot3
-```
-Check that the custom simulation package is available:
-```
-ros2 pkg list | grep house_simulation
-```
-The workspace is now built and ready to use.
 
 
 ## Running SLAM
